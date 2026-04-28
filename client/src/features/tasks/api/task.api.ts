@@ -1,4 +1,4 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient, keepPreviousData } from '@tanstack/react-query';
 import { api } from '@/lib/axios';
 import { Task, CreateTaskInput, UpdateTaskInput, TaskStatus } from '../types/task';
 
@@ -11,6 +11,7 @@ export const useTasks = (status?: TaskStatus) => {
       });
       return data;
     },
+    placeholderData: keepPreviousData,
   });
 };
 

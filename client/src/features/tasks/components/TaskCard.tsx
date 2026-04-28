@@ -27,7 +27,12 @@ export const TaskCard = ({ task }: TaskCardProps) => {
     <Card className={`transition-all ${task.status === 'DONE' ? 'opacity-60 bg-slate-50' : 'bg-white'}`}>
       <CardHeader className="flex flex-row items-start justify-between space-y-0 p-4">
         <div className="flex items-start gap-3">
-          <div className="mt-1">{StatusIcon}</div>
+          <button 
+            className="mt-1 cursor-pointer hover:scale-110 transition-transform focus:outline-none"
+            onClick={() => handleStatusChange(task.status === 'DONE' ? 'TODO' : 'DONE')}
+          >
+            {StatusIcon}
+          </button>
           <div>
             <CardTitle className={`text-lg ${task.status === 'DONE' ? 'line-through text-slate-500' : ''}`}>
               {task.title}

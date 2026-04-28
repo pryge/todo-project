@@ -3,6 +3,7 @@ import { TaskCard } from './TaskCard';
 import { ClipboardList } from 'lucide-react';
 import { Spinner } from '@/components/ui/spinner';
 import { EmptyState } from '@/components/ui/empty-state';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 interface TaskListProps {
   tasks?: Task[];
@@ -10,6 +11,8 @@ interface TaskListProps {
 }
 
 export const TaskList = ({ tasks, isLoading }: TaskListProps) => {
+  const [parent] = useAutoAnimate();
+
   if (isLoading) {
     return <Spinner />;
   }
@@ -25,7 +28,7 @@ export const TaskList = ({ tasks, isLoading }: TaskListProps) => {
   }
 
   return (
-    <div className="grid gap-4">
+    <div ref={parent} className="grid gap-4">
       {tasks.map((task) => (
         <TaskCard key={task.id} task={task} />
       ))}
