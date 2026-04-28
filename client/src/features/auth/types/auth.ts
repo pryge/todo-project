@@ -1,12 +1,12 @@
 import { z } from 'zod';
 
 export const loginSchema = z.object({
-  email: z.string().email('Невірний формат email'),
-  password: z.string().min(6, 'Пароль має містити мінімум 6 символів'),
+  email: z.string().email('Invalid email format'),
+  password: z.string().min(6, 'Password must contain at least 6 characters'),
 });
 
 export const registerSchema = loginSchema.extend({
-  name: z.string().min(2, "Ім'я повинно містити мінімум 2 символи"),
+  name: z.string().min(2, "Name must contain at least 2 characters"),
 });
 
 export type LoginInput = z.infer<typeof loginSchema>;
