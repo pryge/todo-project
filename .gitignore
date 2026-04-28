@@ -1,5 +1,44 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies
 node_modules/
-.env
+.pnp
+.pnp.js
+
+# Build / Output
 dist/
-prisma/*.db
-prisma/*.db-journal
+build/
+.next/
+out/
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Database (SQLite)
+*.db
+*.db-journal
+server/prisma/*.db
+server/prisma/*.db-journal
+server/dev.db
+
+# NestJS
+.nestjs/
+
+# IDE / OS
+.DS_Store
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
