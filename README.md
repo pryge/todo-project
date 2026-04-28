@@ -66,7 +66,8 @@ server/src/
    ```bash
    cd server
    npm install
-   # Create a .env file with DATABASE_URL="file:./dev.db" and JWT_SECRET="your-secret"
+   cp .env.example .env
+   # Update the values in .env if necessary (e.g., set your own JWT_SECRET)
    npx prisma db push
    npm run start:dev
    ```
@@ -75,6 +76,8 @@ server/src/
    ```bash
    cd ../client
    npm install
+   cp .env.example .env.local
+   # Update the NEXT_PUBLIC_API_URL in .env.local if your backend is hosted elsewhere
    npm run dev
    ```
 
